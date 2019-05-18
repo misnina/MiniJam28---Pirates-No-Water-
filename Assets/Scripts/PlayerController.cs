@@ -47,9 +47,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            anim.SetBool("jump", true);
             Jump();
-            anim.SetBool("jump", false);
+        }
+
+        if (Input.GetKeyUp("q")) {
+            anim.SetTrigger("kiss");
         }
 
         //ANIMATIONS
