@@ -11,9 +11,20 @@ public class DialogManager : MonoBehaviour
     public bool inConversation = false;
 
     private Queue<string> sentences;
+
+    public static DialogManager instance;
     
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         sentences = new Queue<string>();
     }
 

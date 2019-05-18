@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InnerCabin.unity
     guid: 0ab41ca4082e3474e9fe99bd2fb39b3d
+  - enabled: 1
+    path: Assets/Scenes/Area1.unity
+    guid: d220edb237af8704ba575a25d34e0983
   m_configObjects: {}
