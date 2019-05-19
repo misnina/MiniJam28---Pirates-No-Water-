@@ -824,6 +824,11 @@ PrefabInstance:
       propertyPath: warpTo
       value: MainShip_Proto
       objectReference: {fileID: 0}
+    - target: {fileID: 28377711108723438, guid: 41c1273894032d948a3021696919f265,
+        type: 3}
+      propertyPath: connection
+      value: ship-inner
+      objectReference: {fileID: 0}
     - target: {fileID: 28377711108723441, guid: 41c1273894032d948a3021696919f265,
         type: 3}
       propertyPath: m_FlipX

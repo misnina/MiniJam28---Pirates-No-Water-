@@ -6,17 +6,21 @@ public class Kiss : MonoBehaviour
 {
     private bool inArea;
     private Animator anim;
+    private Follower followerScript;
+    private GameObject hearty;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        followerScript = GetComponent<Follower>();
+        hearty = transform.Find("Hearty").gameObject;
     }
 
     private void Update()
     {
         if (Input.GetKeyUp("q") && inArea)
         {
-            anim.SetTrigger("kiss");
+            StartCoroutine("KissThenFollow");
         }
     }
 
@@ -34,5 +38,14 @@ public class Kiss : MonoBehaviour
         {
             inArea = false;
         }
+    }
+
+    IEnumerator KissThenFollow()
+    {
+        anim.SetTrigger("kiss");
+        yield return new WaitForSeconds(1);
+        hearty.SetActive(false);
+        followerScript.following = true;
+        GameManager.instance.hasFollower = true;
     }
 }

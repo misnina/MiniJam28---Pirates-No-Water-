@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public string connection;
+    public bool hasFollower;
+
+    public bool level1complete;
 
 void Start()
     {

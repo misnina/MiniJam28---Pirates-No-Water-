@@ -101,7 +101,7 @@ MonoBehaviour:
   m_RefResolutionX: 160
   m_RefResolutionY: 144
   m_UpscaleRT: 0
-  m_PixelSnapping: 1
+  m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 1
   m_StretchFill: 0
@@ -117,3 +117,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87eddc55a05eb84e8313d4851bb14bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10

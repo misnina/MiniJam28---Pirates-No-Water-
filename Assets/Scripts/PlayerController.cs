@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
+    public float moveX;
 
     public bool canMove = true;
     public float speed;
     public float jumpPower;
     private bool isGrounded = true;
+    private bool doubleJump = true;
 
     public static PlayerController instance;
 
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (canMove) {
             Move();
@@ -41,27 +43,23 @@ public class PlayerController : MonoBehaviour
 
     private void Move() {
 
-        float moveX = Input.GetAxisRaw("Horizontal");
+        moveX = Input.GetAxisRaw("Horizontal");
 
         rb.velocity = new Vector2 (moveX * speed, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            Jump();
+            Jump(1f);
+            doubleJump = true;   
+        }
+        else if (Input.GetButtonDown("Jump") && doubleJump && GameManager.instance.hasFollower)
+        {
+            Jump(0.8f);
+            doubleJump = false;
         }
 
         if (Input.GetKeyUp("q")) {
             anim.SetTrigger("kiss");
-        }
-
-        //ANIMATIONS
-        if (rb.velocity.x > 1f || rb.velocity.x < -1f)
-        {
-            anim.SetFloat("moveX", 1);
-        }
-        else
-        {
-            anim.SetFloat("moveX", 0);
         }
 
         //FLIP
@@ -75,9 +73,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
+    public void Jump(float jumpMultiplier)
     {
-        rb.velocity = Vector2.up * jumpPower;
+        rb.velocity = Vector2.up * (jumpPower * jumpMultiplier);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
