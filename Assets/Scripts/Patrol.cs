@@ -7,7 +7,7 @@ public class Patrol : MonoBehaviour
 
     public float speed;
     public float distance;
-    private bool movingRight = true;
+    public bool movingRight;
 
     public Transform groundDectection;
    

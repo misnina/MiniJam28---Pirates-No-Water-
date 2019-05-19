@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Animator anim;
+    public Animator anim;
     public float moveX;
 
     public bool canMove = true;
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(float jumpMultiplier)
     {
+        anim.SetTrigger("jump");
         rb.velocity = Vector2.up * (jumpPower * jumpMultiplier);
     }
 

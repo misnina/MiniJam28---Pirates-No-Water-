@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public string connection;
     public bool hasFollower;
 
-    public bool level1complete;
+    public bool level2complete;
 
 void Start()
     {

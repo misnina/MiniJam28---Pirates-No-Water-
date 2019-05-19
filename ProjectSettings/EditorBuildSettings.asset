@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainShip_Proto.unity
+    path: Assets/Scenes/MainShip_00.unity
+    guid: 55949898a684b044d81b68cd8905ca97
+  - enabled: 1
+    path: Assets/Scenes/MainShip_01.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/InnerCabin.unity
@@ -14,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area1.unity
     guid: d220edb237af8704ba575a25d34e0983
+  - enabled: 1
+    path: Assets/Scenes/Area3.unity
+    guid: 7ae96e0984b137a4ca27d74231589357
   m_configObjects: {}
